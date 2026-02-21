@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Eduland – Online Education & Career Growth Platform</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Ionicons -->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+  section { scroll-margin-top: 100px; }
+  /* ===== Footer Base ===== */
+/* ===== Footer Base ===== */
+.footer {
+  background: #0f172a;
+  color: #94a3b8;
+  padding: 80px 20px 40px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Container */
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Title */
+.footer-title {
+  text-align: center;
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 50px;
+  letter-spacing: 1px;
+}
+
+/* ===== GRID ===== */
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+/* Section */
+.footer-section h4 {
+  color: #ffffff;
+  margin-bottom: 15px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+/* subtle underline accent */
+.footer-section h4::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: #3b82f6;
+  margin-top: 6px;
+}
+
+/* Text */
+.footer-section p {
+  margin: 10px 0;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.footer-section i {
+  margin-right: 8px;
+  color: #3b82f6;
+}
+
+/* Contact Links */
+.footer-section a {
+  color: #60a5fa;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+}
+
+/* ===== Social Icons ===== */
+.footer-social {
+  margin-top: 15px;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  margin-right: 12px;
+  border-radius: 50%;
+  background: #1e293b;
+  color: #94a3b8;
+  font-size: 18px;
+  transition: all 0.4s ease;
+}
+
+.footer-social a:hover {
+  transform: translateY(-6px) scale(1.1);
+  background: #3b82f6;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+}
+
+/* Copyright */
+.footer-copy {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-section h4::after {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+
+
+</style>
+
+</head>
+<body class="font-sans text-gray-800">
+
+<!-- ================= HEADER ================= -->
+<header id="site-header" class="fixed top-0 left-0 w-full z-50 transition-all">
+  <div class="max-w-7xl mx-auto px-4 py-5 flex items-center justify-between bg-white">
+
+    <img src="./assets/images/logo.svg" class="w-32">
+
+    <nav class="hidden md:flex items-center gap-8 font-medium">
+      <a href="#home" class="hover:text-orange-500">Home</a>
+      <a href="#about" class="hover:text-orange-500">About</a>
+      <a href="#service" class="hover:text-orange-500">Service</a>
+      <a href="#blog" class="hover:text-orange-500">Blog</a>
+      <a href="#contact" class="hover:text-orange-500">Contact</a>
+
+      <button class="bg-gray-900 text-white px-6 py-3 rounded-xl hover:bg-orange-500 transition">
+        Get Started
+      </button>
+    </nav>
+
+    <button id="menu-open" class="md:hidden text-3xl text-orange-500">
+      <ion-icon name="menu-outline"></ion-icon>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu"
+    class="max-w-[300px] fixed inset-0 bg-white -translate-x-full transition-transform duration-300 z-50">
+
+    <div class="flex justify-between items-center p-5">
+      <img src="./assets/images/logo.svg" class="w-36">
+      <button id="menu-close" class="text-3xl">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+    </div>
+
+    <ul class="flex flex-col px-6 mt-6 space-y-4 font-medium">
+      <li><a href="#home" class="mobile-link">Home</a></li>
+      <li><a href="#about" class="mobile-link">About</a></li>
+      <li><a href="#service" class="mobile-link">Service</a></li>
+      <li><a href="#blog" class="mobile-link">Blog</a></li>
+      <li><a href="#contact" class="mobile-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <div id="mobile-overlay"
+    class="fixed inset-0 bg-black/70 invisible transition"></div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section id="home" class="pt-32 pb-20 bg-gradient-to-r from-orange-50 to-green-50">
+  <div class="max-w-7xl mx-auto px-4 grid gap-12 lg:grid-cols-2 lg:items-center">
+
+    <div>
+      <h1 class="text-4xl lg:text-5xl font-bold mb-6">
+        Learn Skills to Build Your Future
+      </h1>
+
+      <p class="mb-10 text-gray-600">
+        Access high-quality courses and grow your career with confidence.
+      </p>
+
+      <button class="bg-orange-500 text-white px-8 py-4 rounded-xl hover:bg-orange-600">
+        Explore Courses
+      </button>
+    </div>
+
+    <div>
+      <img src="./assets/images/hero-banner.png" class="max-w-md mx-auto">
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="py-20">
+  <div class="max-w-7xl mx-auto px-4 grid gap-12 lg:grid-cols-2 lg:items-center">
+
+    <div>
+      <img src="./assets/images/about-banner.png" class="max-w-md mx-auto">
+    </div>
+
+    <div>
+      <h2 class="text-3xl lg:text-4xl font-bold mb-6">
+        We Help to Create Possibility & Success in Your Career!
+      </h2>
+
+      <p class="mb-10 text-gray-600">
+        Modern education platform designed for future-ready learners.
+      </p>
+
+      <button class="bg-orange-500 text-white px-8 py-4 rounded-xl hover:bg-orange-600">
+        Get Started Today
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= DEPARTMENTS ================= -->
+<section id="service" class="py-20 bg-orange-50">
+  <div class="max-w-7xl mx-auto px-4">
+
+    <h2 class="text-center text-3xl font-bold mb-16">
+      We Have Most of Popular Departments
+    </h2>
+
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+      <div class="bg-white rounded-2xl shadow p-6">
+        <img src="./assets/images/depertment-1.png" class="rounded-xl mb-6">
+        <h3 class="font-semibold text-xl mb-3">Artificial Intelligence</h3>
+        <p class="text-gray-600 mb-6">High-quality modern AI learning.</p>
+        <a href="#" class="text-orange-500 font-semibold flex items-center gap-2">
+          Learn More <ion-icon name="arrow-forward"></ion-icon>
+        </a>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow p-6">
+        <img src="./assets/images/depertment-2.png" class="rounded-xl mb-6">
+        <h3 class="font-semibold text-xl mb-3">Civil Engineering</h3>
+        <p class="text-gray-600 mb-6">Modern civil engineering concepts.</p>
+        <a href="#" class="text-orange-500 font-semibold flex items-center gap-2">
+          Learn More <ion-icon name="arrow-forward"></ion-icon>
+        </a>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow p-6">
+        <img src="./assets/images/depertment-3.png" class="rounded-xl mb-6">
+        <h3 class="font-semibold text-xl mb-3">Business Studies</h3>
+        <p class="text-gray-600 mb-6">Grow your business mindset.</p>
+        <a href="#" class="text-orange-500 font-semibold flex items-center gap-2">
+          Learn More <ion-icon name="arrow-forward"></ion-icon>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= INSTRUCTORS ================= -->
+<section id="blog" class="py-20">
+  <div class="max-w-7xl mx-auto px-4">
+
+    <h2 class="text-center text-3xl font-bold mb-16">
+      Introduce with Our Famous Teacher
+    </h2>
+
+    <div class="grid gap-12 md:grid-cols-3 text-center">
+
+      <div>
+        <img src="./assets/images/instructor-1.png" class="max-w-xs mx-auto mb-6">
+        <h3 class="font-semibold text-xl">Shaapir Prio</h3>
+        <p class="text-gray-600">Assistant Director</p>
+      </div>
+
+      <div>
+        <img src="./assets/images/instructor-2.png" class="max-w-xs mx-auto mb-6">
+        <h3 class="font-semibold text-xl">Sellina</h3>
+        <p class="text-gray-600">Director</p>
+      </div>
+
+      <div>
+        <img src="./assets/images/instructor-3.png" class="max-w-xs mx-auto mb-6">
+        <h3 class="font-semibold text-xl">John Smith</h3>
+        <p class="text-gray-600">Assistant Director</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= CONTACT / FOOTER ================= -->
+<footer id="contact" class="footer">
+  <div class="footer-container">
+
+    <h3 class="footer-title">Chartered's World Academy</h3>
+
+    <div class="footer-grid">
+
+      <!-- Address -->
+      <div class="footer-section">
+        <h4>Address</h4>
+        <p>
+          <i class="fas fa-location-dot"></i>
+          Shop No. 04, Chandra Co-op Hsg Soc,<br>
+          Rashmi Nagar, Ram Mandir Rd., Virar West 401303
+        </p>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>
+          <i class="fas fa-phone"></i>
+          CA Tanya Kakkar :
+          <a href="tel:8237196808">8237196808</a>
+        </p>
+        <p>
+          <i class="fas fa-phone"></i>
+          CA Vatsal Shah :
+          <a href="tel:7887883799">7887883799</a>
+        </p>
+      </div>
+
+      <!-- Social -->
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/chartereds_world_academy" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+
+          <a href="https://youtube.com/@charteredsworldacademy" target="_blank">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="footer-copy">
+      © 2023 CWA. All rights reserved.
+    </p>
+
+  </div>
+</footer>
+
+<!-- ================= BACK TO TOP ================= -->
+<button id="back-to-top"
+  class="fixed bottom-6 right-6 w-10 h-10 bg-white shadow rounded-full flex items-center justify-center opacity-0 pointer-events-none transition">
+  <ion-icon name="arrow-up"></ion-icon>
+</button>
+
+<!-- ================= JS ================= -->
+<script>
+
+const openBtn = document.getElementById('menu-open');
+const closeBtn = document.getElementById('menu-close');
+const mobileMenu = document.getElementById('mobile-menu');
+const overlay = document.getElementById('mobile-overlay');
+const backTopBtn = document.getElementById('back-to-top');
+
+openBtn.addEventListener('click', () => {
+  mobileMenu.classList.remove('-translate-x-full');
+  overlay.classList.remove('invisible');
+});
+
+closeBtn.addEventListener('click', () => {
+  mobileMenu.classList.add('-translate-x-full');
+  overlay.classList.add('invisible');
+});
+
+overlay.addEventListener('click', () => {
+  mobileMenu.classList.add('-translate-x-full');
+  overlay.classList.add('invisible');
+});
+
+// Close mobile menu when clicking link
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.add('-translate-x-full');
+    overlay.classList.add('invisible');
+  });
+});
+
+// Back to top
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 600) {
+    backTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+  } else {
+    backTopBtn.classList.add('opacity-0', 'pointer-events-none');
+  }
+});
+
+backTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+</script>
+
+</body>
+</html>
