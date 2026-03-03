@@ -3,165 +3,309 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 <title>Eduland – Online Education & Career Growth Platform</title>
 
+<!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- Ionicons -->
+<!-- Icons -->
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+<!-- Swiper -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+<!-- AOS -->
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+
 <style>
-  section { scroll-margin-top: 100px; }
-  /* ===== Footer Base ===== */
-/* ===== Footer Base ===== */
+
+/* ================= GLOBAL ================= */
+section { scroll-margin-top: 100px; }
+
+/* ================= FOOTER ================= */
 .footer {
-  background: #0f172a;
-  color: #94a3b8;
-  padding: 80px 20px 40px;
-  font-family: 'Inter', sans-serif;
+  background:#0f172a;
+  color:#94a3b8;
+  padding:80px 20px 40px;
+  font-family:'Inter',sans-serif;
 }
-
-/* Container */
-.footer-container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-/* Title */
+.footer-container { max-width:1100px; margin:0 auto; }
 .footer-title {
-  text-align: center;
-  color: #ffffff;
-  font-size: 26px;
-  font-weight: 600;
-  margin-bottom: 50px;
-  letter-spacing: 1px;
+  text-align:center;
+  color:#fff;
+  font-size:26px;
+  font-weight:600;
+  margin-bottom:50px;
 }
-
-/* ===== GRID ===== */
 .footer-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:40px;
 }
-
-/* Section */
 .footer-section h4 {
-  color: #ffffff;
-  margin-bottom: 15px;
-  font-size: 16px;
-  letter-spacing: 1px;
-  position: relative;
+  color:#fff;
+  margin-bottom:15px;
+  position:relative;
 }
-
-/* subtle underline accent */
 .footer-section h4::after {
-  content: "";
-  display: block;
-  width: 40px;
-  height: 2px;
-  background: #3b82f6;
-  margin-top: 6px;
+  content:"";
+  display:block;
+  width:40px;
+  height:2px;
+  background:#3b82f6;
+  margin-top:6px;
 }
-
-/* Text */
-.footer-section p {
-  margin: 10px 0;
-  line-height: 1.6;
-  font-size: 14px;
-}
-
-.footer-section i {
-  margin-right: 8px;
-  color: #3b82f6;
-}
-
-/* Contact Links */
 .footer-section a {
-  color: #60a5fa;
-  text-decoration: none;
+  color:#60a5fa;
+  transition:.3s;
+}
+.footer-section a:hover {
+  color:#fff;
+}
+.footer-social a {
+  display:inline-flex;
+  width:45px;
+  height:45px;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:#1e293b;
+  transition:.3s;
+}
+.footer-social a:hover {
+  transform:translateY(-5px);
+  background:#3b82f6;
+}
+.footer-copy {
+  text-align:center;
+  margin-top:60px;
+  font-size:13px;
+  color:#64748b;
+}
+
+/* ================= TESTIMONIAL ================= */
+.testimonial-section {
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(135deg,#f8fafc,#eef2ff);
+}
+.blob {
+  position:absolute;
+  width:350px;
+  height:350px;
+  border-radius:50%;
+  filter:blur(120px);
+  opacity:.5;
+  animation:float 12s ease-in-out infinite;
+}
+.blob1 { background:#c7d2fe; top:-100px; left:-100px; }
+.blob2 { background:#fde68a; bottom:-120px; right:-100px; }
+
+@keyframes float {
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(40px);}
+}
+
+.glass-card {
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(15px);
+  border-radius:20px;
+  padding:40px 30px;
+  text-align:center;
+  border:1px solid rgba(0,0,0,.05);
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  transition:.4s;
+}
+.glass-card:hover {
+  transform:translateY(-8px) scale(1.02);
+}
+.glass-card::after {
+  content:"";
+  position:absolute;
+  bottom:-15px;
+  left:50%;
+  transform:translateX(-50%);
+  border-width:15px;
+  border-style:solid;
+  border-color:rgba(255,255,255,.85) transparent transparent transparent;
+}
+.stars i {
+  color:#facc15;
+  opacity:0;
+  transform:translateY(10px);
+  animation:starFade .6s forwards;
+}
+.stars i:nth-child(1){animation-delay:.2s;}
+.stars i:nth-child(2){animation-delay:.4s;}
+.stars i:nth-child(3){animation-delay:.6s;}
+.stars i:nth-child(4){animation-delay:.8s;}
+.stars i:nth-child(5){animation-delay:1s;}
+
+@keyframes starFade {
+  to{opacity:1;transform:translateY(0);}
+}
+
+.swiper-pagination-bullet {
+  background:#6366f1 !important;
+  opacity:.4;
+}
+.swiper-pagination-bullet-active { opacity:1; }
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+  .footer-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:600px){
+  .footer-grid{grid-template-columns:1fr;text-align:center;}
+}
+
+
+
+
+/* ================= Instructor ================= */
+
+.instructor-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 35px 30px; /* Reduced height */
+  text-align: center;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 2px solid transparent;
+}
+
+/* Wider container look */
+.container-wide {
+  max-width: 6xl;
+}
+
+/* Gradient Border */
+.instructor-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #f97316, #fb923c, #f97316);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.instructor-card:hover::before {
+  opacity: 1;
+}
+
+.instructor-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+/* Image 10% smaller without layout shift */
+.instructor-card img {
+  width: 90%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Animated Underline */
+.name {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.name::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 3px;
+  background: #f97316;
+  transition: width 0.4s ease;
+  border-radius: 999px;
+}
+
+.instructor-card:hover .name::after {
+  width: 100%;
+}
+
+/* ================= MODAL ================= */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 90%;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.modal.show .modal-content {
+  transform: scale(1);
+}
+
+.close-btn {
+  margin-top: 20px;
+  background: #f97316;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 10px;
+  cursor: pointer;
   transition: 0.3s ease;
 }
 
-.footer-section a:hover {
-  color: #ffffff;
-  text-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+.close-btn:hover {
+  background: #ea580c;
 }
-
-/* ===== Social Icons ===== */
-.footer-social {
-  margin-top: 15px;
-}
-
-.footer-social a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 45px;
-  height: 45px;
-  margin-right: 12px;
-  border-radius: 50%;
-  background: #1e293b;
-  color: #94a3b8;
-  font-size: 18px;
-  transition: all 0.4s ease;
-}
-
-.footer-social a:hover {
-  transform: translateY(-6px) scale(1.1);
-  background: #3b82f6;
-  color: #ffffff;
-  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
-}
-
-/* Copyright */
-.footer-copy {
-  text-align: center;
-  margin-top: 60px;
-  font-size: 13px;
-  color: #64748b;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 900px) {
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .footer-section h4::after {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-
-
+/* ================= Instructor ================= */
 
 </style>
-
 </head>
+
 <body class="font-sans text-gray-800">
 
 <!-- ================= HEADER ================= -->
 <header id="site-header" class="fixed top-0 left-0 w-full z-50 transition-all">
   <div class="max-w-7xl mx-auto px-4 py-5 flex items-center justify-between bg-white">
 
-    <img src="assets/images/logo.svg" class="w-32">
+    <img src=".assets/Images/logo.svg" class="w-32">
 
     <nav class="hidden md:flex items-center gap-8 font-medium">
       <a href="#home" class="hover:text-orange-500">Home</a>
       <a href="#about" class="hover:text-orange-500">About</a>
       <a href="#service" class="hover:text-orange-500">Service</a>
       <a href="#blog" class="hover:text-orange-500">Blog</a>
+      <a href="#contact" class="hover:text-orange-500">Contact Us</a>
+      <a href="#testimonial" class="hover:text-orange-500">Testimonial</a>
       <a href="#contact" class="hover:text-orange-500">Contact</a>
 
       <button class="bg-gray-900 text-white px-6 py-3 rounded-xl hover:bg-orange-500 transition">
@@ -179,7 +323,7 @@
     class="max-w-[300px] fixed inset-0 bg-white -translate-x-full transition-transform duration-300 z-50">
 
     <div class="flex justify-between items-center p-5">
-      <img src="./assets/Images/logo.svg" class="w-36">
+      <img src="./.assets/Images/logo.svg" class="w-36">
       <button id="menu-close" class="text-3xl">
         <ion-icon name="close-outline"></ion-icon>
       </button>
@@ -217,7 +361,7 @@
     </div>
 
     <div>
-      <img src="./assets/Images/hero-banner.png" class="max-w-md mx-auto">
+      <img src="./.assets/Images/hero-banner.png" class="max-w-md mx-auto">
     </div>
 
   </div>
@@ -228,7 +372,7 @@
   <div class="max-w-7xl mx-auto px-4 grid gap-12 lg:grid-cols-2 lg:items-center">
 
     <div>
-      <img src="./assets/images/about-banner.png" class="max-w-md mx-auto">
+      <img src="./.assets/Images/about-banner.png" class="max-w-md mx-auto">
     </div>
 
     <div>
@@ -259,8 +403,8 @@
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
       <div class="bg-white rounded-2xl shadow p-6">
-        <img src="/assets/images/depertment-1.png" class="rounded-xl mb-6">
-        <h3 class="font-semibold text-xl mb-3">Artificial Intelligence</h3>
+        <img src=".assets/Images/depertment-1.png" class="rounded-xl mb-6">
+        <h3 class="font-semibold text-xl mb-3">Class 11<sup>th</sup> - Commerce</h3>
         <p class="text-gray-600 mb-6">High-quality modern AI learning.</p>
         <a href="#" class="text-orange-500 font-semibold flex items-center gap-2">
           Learn More <ion-icon name="arrow-forward"></ion-icon>
@@ -268,7 +412,34 @@
       </div>
 
       <div class="bg-white rounded-2xl shadow p-6">
-        <img src="assets/images/depertment-2.png" class="rounded-xl mb-6">
+        <img src=".assets/Images/depertment-2.png" class="rounded-xl mb-6">
+        <h3 class="font-semibold text-xl mb-3">Class 12<sup>th</sup> - Commerce</h3>
+        <p class="text-gray-600 mb-6">Modern civil engineering concepts.</p>
+        <a href="#" class="text-orange-500 font-semibold flex items-center gap-2">
+          Learn More <ion-icon name="arrow-forward"></ion-icon>
+        </a>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow p-6">
+        <img src="./.assets/Images/depertment-3.png" class="rounded-xl mb-6">
+        <h3 class="font-semibold text-xl mb-3">Chartered Accountant - Foundation</h3>
+        <p class="text-gray-600 mb-6">Grow your business mindset.</p>
+        <a href="#" class="text-orange-500 font-semibold flex items-center gap-2">
+          Learn More <ion-icon name="arrow-forward"></ion-icon>
+        </a>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow p-6">
+        <img src=".assets/Images/depertment-1.png" class="rounded-xl mb-6">
+        <h3 class="font-semibold text-xl mb-3">Chartered Accountant - Intermedieaste</h3>
+        <p class="text-gray-600 mb-6">High-quality modern AI learning.</p>
+        <a href="#" class="text-orange-500 font-semibold flex items-center gap-2">
+          Learn More <ion-icon name="arrow-forward"></ion-icon>
+        </a>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow p-6">
+        <img src=".assets/Images/depertment-2.png" class="rounded-xl mb-6">
         <h3 class="font-semibold text-xl mb-3">Civil Engineering</h3>
         <p class="text-gray-600 mb-6">Modern civil engineering concepts.</p>
         <a href="#" class="text-orange-500 font-semibold flex items-center gap-2">
@@ -277,7 +448,7 @@
       </div>
 
       <div class="bg-white rounded-2xl shadow p-6">
-        <img src="./assets/Images/depertment-3.png" class="rounded-xl mb-6">
+        <img src="./.assets/Images/depertment-3.png" class="rounded-xl mb-6">
         <h3 class="font-semibold text-xl mb-3">Business Studies</h3>
         <p class="text-gray-600 mb-6">Grow your business mindset.</p>
         <a href="#" class="text-orange-500 font-semibold flex items-center gap-2">
@@ -289,35 +460,180 @@
   </div>
 </section>
 
+
 <!-- ================= INSTRUCTORS ================= -->
-<section id="blog" class="py-20">
-  <div class="max-w-7xl mx-auto px-4">
+<section id="blog" class="py-20 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4"> <!-- Increased width -->
 
-    <h2 class="text-center text-3xl font-bold mb-16">
-      Introduce with Our Famous Teacher
-    </h2>
+    <div class="text-center mb-14">
+      <h2 class="text-3xl lg:text-4xl font-bold">
+        Introduce with Our Famous Teacher
+      </h2>
+    </div>
 
-    <div class="grid gap-12 md:grid-cols-3 text-center">
+    <div class="grid gap-10 md:grid-cols-2 text-center">
 
-      <div>
-        <img src="./assets/images/instructor-1.png" class="max-w-xs mx-auto mb-6">
-        <h3 class="font-semibold text-xl">Shaapir Prio</h3>
-        <p class="text-gray-600">Assistant Director</p>
+      <!-- Instructor 1 -->
+      <div class="instructor-card">
+        <img src="./.assets/Images/instructor-1.png" class="max-w-xs mx-auto mb-4">
+        <h3 class="font-semibold text-xl mb-2 name" onclick="openModal('Vatsal Shah')">
+          Prof. CA Vatsal Shah
+        </h3>
+        <p class="text-gray-600">Co-Founder</p>
       </div>
 
-      <div>
-        <img src="./assets/images/instructor-2.png" class="max-w-xs mx-auto mb-6">
-        <h3 class="font-semibold text-xl">Sellina</h3>
-        <p class="text-gray-600">Director</p>
-      </div>
-
-      <div>
-        <img src="./assets/images/instructor-3.png" class="max-w-xs mx-auto mb-6">
-        <h3 class="font-semibold text-xl">John Smith</h3>
-        <p class="text-gray-600">Assistant Director</p>
+      <!-- Instructor 2 -->
+      <div class="instructor-card">
+        <img src="./.assets/Images/instructor-2.png" class="max-w-xs mx-auto mb-4">
+        <h3 class="font-semibold text-xl mb-2 name" onclick="openModal('Tanya Kakkar')">
+          Prof. CA Tanya Kakkar
+        </h3>
+        <p class="text-gray-600">Co-Founder</p>
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- ================= MODAL ================= -->
+<div id="profileModal" class="modal">
+  <div class="modal-content">
+    <h3 id="modalName" class="text-2xl font-bold mb-4"></h3>
+    <p class="text-gray-600 mb-4">
+      Experienced educator with years of industry and academic excellence.
+      Passionate about mentoring students and building strong foundations.
+    </p>
+    <div class="close-btn" onclick="closeModal()">Close</div>
+  </div>
+</div>
+
+<!-- ================= TESTIMONIAL SECTION ================= -->
+<section id="testimonial" class="testimonial-section py-24">
+
+  <!-- Floating Blobs -->
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+
+  <div class="max-w-6xl mx-auto px-4 relative z-10">
+
+    <h2 class="text-center text-4xl font-bold text-gray-800 mb-16"
+        data-aos="fade-up">
+      What Our Students Say
+    </h2>
+
+    <div class="swiper testimonialSwiper" data-aos="fade-up" data-aos-delay="200">
+      <div class="swiper-wrapper">
+
+        <!-- Testimonial 1 -->
+        <div class="swiper-slide">
+          <div class="glass-card">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg">
+            <h3 class="text-xl font-semibold">Kunal Dhuri</h3>
+            <p class="mb-4 text-gray-500">Artificial Intelligence Student</p>
+
+            <div class="stars mb-4">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+
+            <p>
+              The instructors explain concepts clearly and make learning practical and engaging.
+            </p>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="swiper-slide">
+          <div class="glass-card">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg">
+            <h3 class="text-xl font-semibold">Priya Sawala</h3>
+            <p class="mb-4 text-gray-500">Business Studies Student</p>
+
+            <div class="stars mb-4">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+
+            <p>
+              This platform boosted my confidence and helped me gain real-world skills.
+            </p>
+          </div>
+        </div>
+
+
+                <!-- Testimonial 2 -->
+        <div class="swiper-slide">
+          <div class="glass-card">
+            <img src="https://randomuser.me/api/portraits/women/40.jpg">
+            <h3 class="text-xl font-semibold">Vidhisha Dwivedi</h3>
+            <p class="mb-4 text-gray-500">Business Studies Student</p>
+
+            <div class="stars mb-4">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+
+            <p>
+              This platform boosted my confidence and helped me gain real-world skills.
+            </p>
+          </div>
+        </div>
+
+                <!-- Testimonial 2 -->
+        <div class="swiper-slide">
+          <div class="glass-card">
+            <img src="https://randomuser.me/api/portraits/men/12.jpg">
+            <h3 class="text-xl font-semibold">Abhishek Vadher</h3>
+            <p class="mb-4 text-gray-500">Business Studies Student</p>
+
+            <div class="stars mb-4">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+
+            <p>
+              This platform boosted my confidence and helped me gain real-world skills.
+            </p>
+          </div>
+        </div>
+
+                <!-- Testimonial 2 -->
+        <div class="swiper-slide">
+          <div class="glass-card">
+            <img src="https://randomuser.me/api/portraits/men/22.jpg">
+            <h3 class="text-xl font-semibold">Neel Shah</h3>
+            <p class="mb-4 text-gray-500">Business Studies Student</p>
+
+            <div class="stars mb-4">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+
+            <p>
+              This platform boosted my confidence and helped me gain real-world skills.
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <div class="swiper-pagination mt-10"></div>
+    </div>
+
   </div>
 </section>
 
@@ -384,54 +700,82 @@
   <ion-icon name="arrow-up"></ion-icon>
 </button>
 
-<!-- ================= JS ================= -->
+<!-- ================= SCRIPTS ================= -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 <script>
+document.addEventListener("DOMContentLoaded", function () {
 
-const openBtn = document.getElementById('menu-open');
-const closeBtn = document.getElementById('menu-close');
-const mobileMenu = document.getElementById('mobile-menu');
-const overlay = document.getElementById('mobile-overlay');
-const backTopBtn = document.getElementById('back-to-top');
-
-openBtn.addEventListener('click', () => {
-  mobileMenu.classList.remove('-translate-x-full');
-  overlay.classList.remove('invisible');
-});
-
-closeBtn.addEventListener('click', () => {
-  mobileMenu.classList.add('-translate-x-full');
-  overlay.classList.add('invisible');
-});
-
-overlay.addEventListener('click', () => {
-  mobileMenu.classList.add('-translate-x-full');
-  overlay.classList.add('invisible');
-});
-
-// Close mobile menu when clicking link
-document.querySelectorAll('.mobile-link').forEach(link => {
-  link.addEventListener('click', () => {
-    mobileMenu.classList.add('-translate-x-full');
-    overlay.classList.add('invisible');
+  /* Swiper */
+  new Swiper(".testimonialSwiper", {
+    slidesPerView:1,
+    spaceBetween:30,
+    loop:true,
+    autoplay:{delay:3000,disableOnInteraction:false},
+    pagination:{el:".swiper-pagination",clickable:true},
+    breakpoints:{
+      768:{slidesPerView:2},
+      1024:{slidesPerView:3}
+    }
   });
-});
 
-// Back to top
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 600) {
-    backTopBtn.classList.remove('opacity-0', 'pointer-events-none');
-  } else {
-    backTopBtn.classList.add('opacity-0', 'pointer-events-none');
+  /* AOS */
+  AOS.init({duration:1000,once:true});
+
+  /* Mobile Menu + Back to Top */
+  const openBtn = document.getElementById('menu-open');
+  const closeBtn = document.getElementById('menu-close');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const overlay = document.getElementById('mobile-overlay');
+  const backTopBtn = document.getElementById('back-to-top');
+
+  if(openBtn){
+    openBtn.addEventListener('click',()=>{
+      mobileMenu.classList.remove('-translate-x-full');
+      overlay.classList.remove('invisible');
+    });
   }
+
+  if(closeBtn){
+    closeBtn.addEventListener('click',()=>{
+      mobileMenu.classList.add('-translate-x-full');
+      overlay.classList.add('invisible');
+    });
+  }
+
+  if(overlay){
+    overlay.addEventListener('click',()=>{
+      mobileMenu.classList.add('-translate-x-full');
+      overlay.classList.add('invisible');
+    });
+  }
+
+  window.addEventListener('scroll',()=>{
+    if(window.scrollY>600){
+      backTopBtn.classList.remove('opacity-0','pointer-events-none');
+    } else {
+      backTopBtn.classList.add('opacity-0','pointer-events-none');
+    }
+  });
+
+  backTopBtn.addEventListener('click',()=>{
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+
 });
 
-backTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+  /* Instructor Modal */
+function openModal(name) {
+  document.getElementById("modalName").innerText = name;
+  document.getElementById("profileModal").classList.add("show");
+}
+
+function closeModal() {
+  document.getElementById("profileModal").classList.remove("show");
+}
 
 </script>
 
 </body>
 </html>
-
-
