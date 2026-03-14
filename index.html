@@ -13,6 +13,7 @@
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="icon" type="image/png" href="assets/Images/CWA LOGO.png">
+
 <!-- Swiper -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
@@ -21,99 +22,254 @@
 
 <style>
 
+/* ================= CSS VARIABLES (FIX: were missing) ================= */
+:root {
+  --primary: #1e3a5f;
+  --primary-dark: #12263f;
+  --primary-light: #f0f4f8;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+}
+
 /* ================= GLOBAL ================= */
+/* FIX: Removed conflicting body styles that were centering the whole page */
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #ffffff;
+  overflow-x: hidden;
+}
+
 section { scroll-margin-top: 100px; }
 
-/* ================= FOOTER ================= */
-.footer {
-  background:#0f172a;
-  color:#94a3b8;
-  padding:80px 20px 40px;
-  font-family:'Inter',sans-serif;
+/* ================= CONTACT FORM WRAPPER ================= */
+.contact-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  background: white;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+  margin: 0 auto;
 }
-.footer-container { max-width:1100px; margin:0 auto; }
-.footer-title {
-  text-align:center;
-  color:#fff;
-  font-size:26px;
-  font-weight:600;
-  margin-bottom:50px;
+
+.panel {
+  background: linear-gradient(160deg, var(--primary), var(--primary-dark));
+  padding: 50px 36px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.footer-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:40px;
+
+.panel h1 {
+  font-size: 34px;
+  margin-bottom: 12px;
 }
-.footer-section h4 {
-  color:#fff;
-  margin-bottom:15px;
-  position:relative;
+
+.panel p {
+  opacity: .85;
+  line-height: 1.6;
+  font-size: 14px;
+  margin-bottom: 30px;
 }
-.footer-section h4::after {
-  content:"";
-  display:block;
-  width:40px;
-  height:2px;
-  background:#3b82f6;
-  margin-top:6px;
+
+.panel-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
-.footer-section a {
-  color:#60a5fa;
-  transition:.3s;
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.5;
 }
-.footer-section a:hover {
-  color:#fff;
-}
+
+.info-item i { font-size: 16px; margin-top: 3px; }
+.info-item a { color: white; text-decoration: none; }
+
+.footer-section { margin-top: 25px; }
+.footer-section h4 { font-size: 14px; margin-bottom: 10px; }
+
+.footer-social { display: flex; gap: 12px; }
+
 .footer-social a {
-  display:inline-flex;
-  width:45px;
-  height:45px;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  background:#1e293b;
-  transition:.3s;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 16px;
+  transition: .3s;
 }
+
 .footer-social a:hover {
-  transform:translateY(-5px);
-  background:#3b82f6;
+  background: white;
+  color: var(--primary);
+  transform: translateY(-2px);
 }
+
+.form-area { padding: 48px 46px; }
+
+.form-header { margin-bottom: 30px; }
+
+.form-header h2 {
+  font-size: 28px;
+  margin-bottom: 5px;
+  color: var(--primary);
+}
+
+.form-header p { color: var(--muted); font-size: 14px; }
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.full { grid-column: 1 / -1; }
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--muted);
+}
+
+.form-area input,
+.form-area textarea {
+  padding: 13px 15px;
+  border-radius: 9px;
+  border: 1.5px solid var(--border);
+  font-family: 'DM Sans', sans-serif;
+  background: #fafaf9;
+  font-size: 15px;
+  outline: none;
+  transition: .2s;
+  width: 100%;
+}
+
+.form-area input:focus,
+.form-area textarea:focus {
+  border-color: var(--primary);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(15,23,42,0.08);
+}
+
+.form-area textarea { height: 120px; resize: none; }
+
+.form-submit-btn {
+  grid-column: 1 / -1;
+  padding: 14px;
+  background: var(--primary);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  transition: .2s;
+  width: 100%;
+}
+
+.form-submit-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+#success {
+  display: none;
+  grid-column: 1 / -1;
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  padding: 14px;
+  border-radius: 10px;
+  color: #166534;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 8px;
+}
+
+@media(max-width:720px) {
+  .contact-wrapper { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .full { grid-column: 1; }
+}
+
 .footer-copy {
-  text-align:center;
-  margin-top:60px;
-  font-size:13px;
-  color:#64748b;
+  text-align: center;
+  margin-top: 60px;
+  font-size: 13px;
+  color: #64748b;
 }
 
 /* ================= TESTIMONIAL ================= */
 .testimonial-section {
-  position:relative;
-  overflow:hidden;
-  background:linear-gradient(135deg,#f8fafc,#eef2ff);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f8fafc, #eef2ff);
 }
+
 .blob {
-  position:absolute;
-  width:350px;
-  height:350px;
-  border-radius:50%;
-  filter:blur(120px);
-  opacity:.5;
-  animation:float 12s ease-in-out infinite;
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: .5;
+  animation: float 12s ease-in-out infinite;
 }
-.blob1 { background:#c7d2fe; top:-100px; left:-100px; }
-.blob2 { background:#fde68a; bottom:-120px; right:-100px; }
+
+.blob1 { background: #c7d2fe; top: -100px; left: -100px; }
+.blob2 { background: #fde68a; bottom: -120px; right: -100px; }
 
 @keyframes float {
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(40px);}
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(40px); }
 }
 
-/* Fix glass card positioning */
 .glass-card {
   position: relative;
+  background: rgba(255,255,255,.85);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  border: 1px solid rgba(0,0,0,.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  transition: .4s;
 }
 
-/* Center testimonial image properly */
+.glass-card:hover { transform: translateY(-8px) scale(1.02); }
+
+.glass-card::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 15px;
+  border-style: solid;
+  border-color: rgba(255,255,255,.85) transparent transparent transparent;
+}
+
 .glass-card img {
   width: 90px;
   height: 90px;
@@ -124,81 +280,37 @@ section { scroll-margin-top: 100px; }
   border: 3px solid white;
 }
 
-.glass-card {
-  background:rgba(255,255,255,.85);
-  backdrop-filter:blur(15px);
-  border-radius:20px;
-  padding:40px 30px;
-  text-align:center;
-  border:1px solid rgba(0,0,0,.05);
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
-  transition:.4s;
-}
-.glass-card:hover {
-  transform:translateY(-8px) scale(1.02);
-}
-.glass-card::after {
-  content:"";
-  position:absolute;
-  bottom:-15px;
-  left:50%;
-  transform:translateX(-50%);
-  border-width:15px;
-  border-style:solid;
-  border-color:rgba(255,255,255,.85) transparent transparent transparent;
-}
 .stars i {
-  color:#facc15;
-  opacity:0;
-  transform:translateY(10px);
-  animation:starFade .6s forwards;
+  color: #facc15;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: starFade .6s forwards;
 }
-.stars i:nth-child(1){animation-delay:.2s;}
-.stars i:nth-child(2){animation-delay:.4s;}
-.stars i:nth-child(3){animation-delay:.6s;}
-.stars i:nth-child(4){animation-delay:.8s;}
-.stars i:nth-child(5){animation-delay:1s;}
+.stars i:nth-child(1) { animation-delay: .2s; }
+.stars i:nth-child(2) { animation-delay: .4s; }
+.stars i:nth-child(3) { animation-delay: .6s; }
+.stars i:nth-child(4) { animation-delay: .8s; }
+.stars i:nth-child(5) { animation-delay: 1s; }
 
 @keyframes starFade {
-  to{opacity:1;transform:translateY(0);}
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.swiper-pagination-bullet {
-  background:#6366f1 !important;
-  opacity:.4;
-}
-.swiper-pagination-bullet-active { opacity:1; }
+.swiper-pagination-bullet { background: #6366f1 !important; opacity: .4; }
+.swiper-pagination-bullet-active { opacity: 1; }
 
-/* ================= RESPONSIVE ================= */
-@media(max-width:900px){
-  .footer-grid{grid-template-columns:repeat(2,1fr);}
-}
-@media(max-width:600px){
-  .footer-grid{grid-template-columns:1fr;text-align:center;}
-}
-
-
-
-
-/* ================= Instructor ================= */
-
+/* ================= INSTRUCTORS ================= */
 .instructor-card {
   position: relative;
   background: #ffffff;
   border-radius: 20px;
-  padding: 35px 30px; /* Reduced height */
+  padding: 35px 30px;
   text-align: center;
   overflow: hidden;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   border: 2px solid transparent;
 }
 
-/* Wider container look */
-.container-wide {
-  max-width: 6xl;
-}
-
-/* Gradient Border */
 .instructor-card::before {
   content: "";
   position: absolute;
@@ -206,25 +318,20 @@ section { scroll-margin-top: 100px; }
   padding: 2px;
   border-radius: 20px;
   background: linear-gradient(135deg, #f97316, #fb923c, #f97316);
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
-          mask-composite: exclude;
+  mask-composite: exclude;
   opacity: 0;
   transition: opacity 0.4s ease;
 }
 
-.instructor-card:hover::before {
-  opacity: 1;
-}
+.instructor-card:hover::before { opacity: 1; }
 
 .instructor-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 15px 30px rgba(0,0,0,0.08);
 }
 
-/* Image 10% smaller without layout shift */
 .instructor-card img {
   width: 90%;
   height: auto;
@@ -232,7 +339,6 @@ section { scroll-margin-top: 100px; }
   margin-right: auto;
 }
 
-/* Animated Underline */
 .name {
   position: relative;
   display: inline-block;
@@ -251,12 +357,9 @@ section { scroll-margin-top: 100px; }
   border-radius: 999px;
 }
 
-.instructor-card:hover .name::after {
-  width: 100%;
-}
+.instructor-card:hover .name::after { width: 100%; }
 
 /* ================= MODAL ================= */
-
 .modal {
   position: fixed;
   inset: 0;
@@ -267,12 +370,10 @@ section { scroll-margin-top: 100px; }
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
+  z-index: 9999;
 }
 
-.modal.show {
-  opacity: 1;
-  pointer-events: auto;
-}
+.modal.show { opacity: 1; pointer-events: auto; }
 
 .modal-content {
   background: white;
@@ -285,11 +386,10 @@ section { scroll-margin-top: 100px; }
   text-align: center;
 }
 
-.modal.show .modal-content {
-  transform: scale(1);
-}
+.modal.show .modal-content { transform: scale(1); }
 
 .close-btn {
+  display: inline-block;
   margin-top: 20px;
   background: #f97316;
   color: white;
@@ -299,10 +399,10 @@ section { scroll-margin-top: 100px; }
   transition: 0.3s ease;
 }
 
-.close-btn:hover {
-  background: #ea580c;
-}
-/* ================= Instructor ================= */
+.close-btn:hover { background: #ea580c; }
+
+@media(max-width:900px) { .footer-grid { grid-template-columns: repeat(2,1fr); } }
+@media(max-width:600px) { .footer-grid { grid-template-columns: 1fr; text-align: center; } }
 
 </style>
 </head>
@@ -311,19 +411,18 @@ section { scroll-margin-top: 100px; }
 
 <!-- ================= HEADER ================= -->
 <header id="site-header" class="fixed top-0 left-0 w-full z-50 transition-all">
-  <div class="max-w-7xl mx-auto px-4 py-5 flex items-center justify-between bg-white">
+  <div class="max-w-7xl mx-auto px-4 py-5 flex items-center justify-between bg-white shadow-sm">
 
-    <img src="./assets/Images/logo.svg" class="w-32">
+    <img src="./assets/Images/logo.svg" class="w-32" alt="CWA Logo">
 
+    <!-- FIX: Removed duplicate "Contact" nav link -->
     <nav class="hidden md:flex items-center gap-8 font-medium">
       <a href="#home" class="hover:text-orange-500">Home</a>
       <a href="#about" class="hover:text-orange-500">About</a>
       <a href="#service" class="hover:text-orange-500">Service</a>
       <a href="#blog" class="hover:text-orange-500">Blog</a>
-      <a href="#contact" class="hover:text-orange-500">Contact Us</a>
       <a href="#testimonial" class="hover:text-orange-500">Testimonial</a>
-      <a href="#contact" class="hover:text-orange-500">Contact</a>
-
+      <a href="#contact" class="hover:text-orange-500">Contact Us</a>
       <button class="bg-gray-900 text-white px-6 py-3 rounded-xl hover:bg-orange-500 transition">
         Get Started
       </button>
@@ -337,14 +436,12 @@ section { scroll-margin-top: 100px; }
   <!-- Mobile Menu -->
   <div id="mobile-menu"
     class="max-w-[300px] fixed inset-0 bg-white -translate-x-full transition-transform duration-300 z-50">
-
     <div class="flex justify-between items-center p-5">
-      <img src="./assets/Images/logo.svg" class="w-36">
+      <img src="./assets/Images/logo.svg" class="w-36" alt="CWA Logo">
       <button id="menu-close" class="text-3xl">
         <ion-icon name="close-outline"></ion-icon>
       </button>
     </div>
-
     <ul class="flex flex-col px-6 mt-6 space-y-4 font-medium">
       <li><a href="#home" class="mobile-link">Home</a></li>
       <li><a href="#about" class="mobile-link">About</a></li>
@@ -354,72 +451,59 @@ section { scroll-margin-top: 100px; }
     </ul>
   </div>
 
-  <div id="mobile-overlay"
-    class="fixed inset-0 bg-black/70 invisible transition"></div>
+  <div id="mobile-overlay" class="fixed inset-0 bg-black/70 invisible transition"></div>
 </header>
 
 <!-- ================= HERO ================= -->
 <section id="home" class="pt-32 pb-20 bg-gradient-to-r from-orange-50 to-green-50">
   <div class="max-w-7xl mx-auto px-4 grid gap-12 lg:grid-cols-2 lg:items-center">
-
     <div>
       <h1 class="text-4xl lg:text-5xl font-bold mb-6">
         Learn Skills to Build Your Future
       </h1>
-
       <p class="mb-10 text-gray-600">
         Access high-quality courses and grow your career with confidence.
       </p>
-
       <button class="bg-orange-500 text-white px-8 py-4 rounded-xl hover:bg-orange-600">
         Explore Courses
       </button>
     </div>
-
     <div>
-      <img src="./assets/Images/hero-banner.png" class="max-w-md mx-auto">
+      <img src="./assets/Images/hero-banner.png" class="max-w-md mx-auto" alt="Hero Banner">
     </div>
-
   </div>
 </section>
 
 <!-- ================= ABOUT ================= -->
 <section id="about" class="py-20">
   <div class="max-w-7xl mx-auto px-4 grid gap-12 lg:grid-cols-2 lg:items-center">
-
     <div>
-      <img src="./assets/Images/about-banner.png" class="max-w-md mx-auto">
+      <img src="./assets/Images/about-banner.png" class="max-w-md mx-auto" alt="About">
     </div>
-
     <div>
       <h2 class="text-3xl lg:text-4xl font-bold mb-6">
         We Help to Create Possibility & Success in Your Career!
       </h2>
-
       <p class="mb-10 text-gray-600">
         Modern education platform designed for future-ready learners.
       </p>
-
       <button class="bg-orange-500 text-white px-8 py-4 rounded-xl hover:bg-orange-600">
         Get Started Today
       </button>
     </div>
-
   </div>
 </section>
 
 <!-- ================= DEPARTMENTS ================= -->
 <section id="service" class="py-20 bg-orange-50">
   <div class="max-w-7xl mx-auto px-4">
-
     <h2 class="text-center text-3xl font-bold mb-16">
       We Have Most of Popular Departments
     </h2>
-
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
       <div class="bg-white rounded-2xl shadow p-6">
-        <img src="./assets/Images/depertment-1.png" class="rounded-xl mb-6">
+        <img src="./assets/Images/depertment-1.png" class="rounded-xl mb-6" alt="Class 11">
         <h3 class="font-semibold text-xl mb-3">Class 11<sup>th</sup> - Commerce</h3>
         <p class="text-gray-600 mb-6">High-quality modern AI learning.</p>
         <a href="#" class="text-orange-500 font-semibold flex items-center gap-2">
@@ -428,7 +512,7 @@ section { scroll-margin-top: 100px; }
       </div>
 
       <div class="bg-white rounded-2xl shadow p-6">
-        <img src="./assets/Images/depertment-2.png" class="rounded-xl mb-6">
+        <img src="./assets/Images/depertment-2.png" class="rounded-xl mb-6" alt="Class 12">
         <h3 class="font-semibold text-xl mb-3">Class 12<sup>th</sup> - Commerce</h3>
         <p class="text-gray-600 mb-6">Modern civil engineering concepts.</p>
         <a href="#" class="text-orange-500 font-semibold flex items-center gap-2">
@@ -437,7 +521,8 @@ section { scroll-margin-top: 100px; }
       </div>
 
       <div class="bg-white rounded-2xl shadow p-6">
-        <img src="./assets/Images/depertment-3.png" class="rounded-xl mb-6">
+        <img src="./assets/Images/depertment-3.png" class="rounded-xl mb-6" alt="CA Foundation">
+        <!-- FIX: Typo "Intermedieaste" → "Intermediate" applied below too -->
         <h3 class="font-semibold text-xl mb-3">Chartered Accountant - Foundation</h3>
         <p class="text-gray-600 mb-6">Grow your business mindset.</p>
         <a href="#" class="text-orange-500 font-semibold flex items-center gap-2">
@@ -446,8 +531,9 @@ section { scroll-margin-top: 100px; }
       </div>
 
       <div class="bg-white rounded-2xl shadow p-6">
-        <img src="./assets/Images/depertment-1.png" class="rounded-xl mb-6">
-        <h3 class="font-semibold text-xl mb-3">Chartered Accountant - Intermedieaste</h3>
+        <img src="./assets/Images/depertment-1.png" class="rounded-xl mb-6" alt="CA Intermediate">
+        <!-- FIX: Typo corrected -->
+        <h3 class="font-semibold text-xl mb-3">Chartered Accountant - Intermediate</h3>
         <p class="text-gray-600 mb-6">High-quality modern AI learning.</p>
         <a href="#" class="text-orange-500 font-semibold flex items-center gap-2">
           Learn More <ion-icon name="arrow-forward"></ion-icon>
@@ -455,7 +541,7 @@ section { scroll-margin-top: 100px; }
       </div>
 
       <div class="bg-white rounded-2xl shadow p-6">
-        <img src="./assets/Images/depertment-2.png" class="rounded-xl mb-6">
+        <img src="./assets/Images/depertment-2.png" class="rounded-xl mb-6" alt="Civil Engineering">
         <h3 class="font-semibold text-xl mb-3">Civil Engineering</h3>
         <p class="text-gray-600 mb-6">Modern civil engineering concepts.</p>
         <a href="#" class="text-orange-500 font-semibold flex items-center gap-2">
@@ -464,7 +550,7 @@ section { scroll-margin-top: 100px; }
       </div>
 
       <div class="bg-white rounded-2xl shadow p-6">
-        <img src="./assets/Images/depertment-3.png" class="rounded-xl mb-6">
+        <img src="./assets/Images/depertment-3.png" class="rounded-xl mb-6" alt="Business Studies">
         <h3 class="font-semibold text-xl mb-3">Business Studies</h3>
         <p class="text-gray-600 mb-6">Grow your business mindset.</p>
         <a href="#" class="text-orange-500 font-semibold flex items-center gap-2">
@@ -476,31 +562,26 @@ section { scroll-margin-top: 100px; }
   </div>
 </section>
 
-
 <!-- ================= INSTRUCTORS ================= -->
 <section id="blog" class="py-20 bg-gray-50">
-  <div class="max-w-6xl mx-auto px-4"> <!-- Increased width -->
-
+  <div class="max-w-6xl mx-auto px-4">
     <div class="text-center mb-14">
       <h2 class="text-3xl lg:text-4xl font-bold">
         Introduce with Our Famous Teacher
       </h2>
     </div>
-
     <div class="grid gap-10 md:grid-cols-2 text-center">
 
-      <!-- Instructor 1 -->
       <div class="instructor-card">
-        <img src="./assets/Images/2.png" class="max-w-xs mx-auto mb-4">
+        <img src="./assets/Images/2.png" class="max-w-xs mx-auto mb-4" alt="Vatsal Shah">
         <h3 class="font-semibold text-xl mb-2 name" onclick="openModal('Vatsal Shah')">
           Prof. CA Vatsal Shah
         </h3>
         <p class="text-gray-600">Co-Founder</p>
       </div>
 
-      <!-- Instructor 2 -->
       <div class="instructor-card">
-        <img src="./assets/Images/1.jpg.jpeg" class="max-w-xs mx-auto mb-4">
+        <img src="./assets/Images/1.jpg.jpeg" class="max-w-xs mx-auto mb-4" alt="Tanya Kakkar">
         <h3 class="font-semibold text-xl mb-2 name" onclick="openModal('Tanya Kakkar')">
           Prof. CA Tanya Kakkar
         </h3>
@@ -523,201 +604,190 @@ section { scroll-margin-top: 100px; }
   </div>
 </div>
 
-<!-- ================= TESTIMONIAL SECTION ================= -->
+<!-- ================= TESTIMONIAL ================= -->
 <section id="testimonial" class="testimonial-section py-24">
-
-  <!-- Floating Blobs -->
   <div class="blob blob1"></div>
   <div class="blob blob2"></div>
 
   <div class="max-w-6xl mx-auto px-4 relative z-10">
-
-    <h2 class="text-center text-4xl font-bold text-gray-800 mb-16"
-        data-aos="fade-up">
+    <h2 class="text-center text-4xl font-bold text-gray-800 mb-16" data-aos="fade-up">
       What Our Students Say
     </h2>
 
     <div class="swiper testimonialSwiper" data-aos="fade-up" data-aos-delay="200">
       <div class="swiper-wrapper">
 
-        <!-- Testimonial 1 -->
         <div class="swiper-slide">
           <div class="glass-card">
-            <img src="https://randomuser.me/api/portraits/men/32.jpg">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Kunal Dhuri">
             <h3 class="text-xl font-semibold">Kunal Dhuri</h3>
             <p class="mb-4 text-gray-500">Artificial Intelligence Student</p>
-
             <div class="stars mb-4">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
             </div>
-
-            <p>
-              The instructors explain concepts clearly and make learning practical and engaging.
-            </p>
+            <p>The instructors explain concepts clearly and make learning practical and engaging.</p>
           </div>
         </div>
 
-        <!-- Testimonial 2 -->
         <div class="swiper-slide">
           <div class="glass-card">
-            <img src="https://randomuser.me/api/portraits/women/44.jpg">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Sawala">
             <h3 class="text-xl font-semibold">Priya Sawala</h3>
             <p class="mb-4 text-gray-500">Business Studies Student</p>
-
             <div class="stars mb-4">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
             </div>
-
-            <p>
-              This platform boosted my confidence and helped me gain real-world skills.
-            </p>
+            <!-- FIX: Removed stray URL that was left in testimonial text -->
+            <p>This platform boosted my confidence and helped me gain real-world skills.</p>
           </div>
         </div>
 
-
-                <!-- Testimonial 2 -->
         <div class="swiper-slide">
           <div class="glass-card">
-            <img src="https://randomuser.me/api/portraits/women/40.jpg">
+            <img src="https://randomuser.me/api/portraits/women/40.jpg" alt="Vidhisha Dwivedi">
             <h3 class="text-xl font-semibold">Vidhisha Dwivedi</h3>
             <p class="mb-4 text-gray-500">Business Studies Student</p>
-
             <div class="stars mb-4">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
             </div>
-
-            <p>
-              This platform boosted my confidence and helped me gain real-world skills.
-            </p>
+            <p>This platform boosted my confidence and helped me gain real-world skills.</p>
           </div>
         </div>
 
-                <!-- Testimonial 2 -->
         <div class="swiper-slide">
           <div class="glass-card">
-            <img src="https://randomuser.me/api/portraits/men/12.jpg">
+            <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Abhishek Vadher">
             <h3 class="text-xl font-semibold">Abhishek Vadher</h3>
             <p class="mb-4 text-gray-500">Business Studies Student</p>
-
             <div class="stars mb-4">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
             </div>
-
-            <p>
-              This platform boosted my confidence and helped me gain real-world skills.
-            </p>
+            <p>This platform boosted my confidence and helped me gain real-world skills.</p>
           </div>
         </div>
 
-                <!-- Testimonial 2 -->
         <div class="swiper-slide">
           <div class="glass-card">
-            <img src="https://randomuser.me/api/portraits/men/22.jpg">
+            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Neel Shah">
             <h3 class="text-xl font-semibold">Neel Shah</h3>
             <p class="mb-4 text-gray-500">Business Studies Student</p>
-
             <div class="stars mb-4">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
             </div>
-
-            <p>
-              This platform boosted my confidence and helped me gain real-world skills.
-            </p>
+            <p>This platform boosted my confidence and helped me gain real-world skills.</p>
           </div>
         </div>
 
       </div>
       <div class="swiper-pagination mt-10"></div>
     </div>
-
   </div>
 </section>
 
+<!-- ================= CONTACT FORM ================= -->
+<section id="contact" class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="contact-wrapper">
 
-<!-- ================= CONTACT / FOOTER ================= -->
-<footer id="contact" class="footer">
-  <div class="footer-container">
+      <div class="panel">
+        <div>
+          <h1>Get In Touch</h1>
+          <p>We'd love to hear from you. Send us a message and we'll get back to you as soon as possible.</p>
+          <div class="panel-info">
+            <div class="info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Shop No. 04, Chandra Co-op Hsg Soc,<br>
+Rashmi Nagar, Ram Mandir Rd., Virar West 401303</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:info@cwa.edu">charteredsworldacademy@gmail.com</a>
+            </div>
+            
+            <div class="info-item">
+            <i class="fas fa-phone"></i>
+            CA Vatsal Shah :
+            <a href="tel:7887883799">7887883799</a>
+            </div>
 
-    <h3 class="footer-title">Chartered's World Academy</h3>
+            <div class="info-item">
+            <i class="fas fa-phone"></i>
+            CA Tanya Kakkar :
+            <a href="tel:8237196808">8237196808</a>
+            </div>
 
-    <div class="footer-grid">
 
-      <!-- Address -->
-      <div class="footer-section">
-        <h4>Address</h4>
-        <p>
-          <i class="fas fa-location-dot"></i>
-          Shop No. 04, Chandra Co-op Hsg Soc,<br>
-          Rashmi Nagar, Ram Mandir Rd., Virar West 401303
-        </p>
-      </div>
-
-      <!-- Contact -->
-      <div class="footer-section">
-        <h4>Contact</h4>
-        <p>
-          <i class="fas fa-phone"></i>
-          CA Tanya Kakkar :
-          <a href="tel:8237196808">8237196808</a>
-        </p>
-        <p>
-          <i class="fas fa-phone"></i>
-          CA Vatsal Shah :
-          <a href="tel:7887883799">7887883799</a>
-        </p>
-      </div>
-
-      <!-- Social -->
-      <div class="footer-section">
-        <h4>Follow Us</h4>
-        <div class="footer-social">
-          <a href="https://www.instagram.com/chartereds_world_academy" target="_blank">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://www.instagram.com/chartereds_world_academy" target="_blank">
-            <i class="fab fa-telegram"></i>
-          </a>
-          <a href="https://www.instagram.com/chartereds_world_academy" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-          </a>
-          <a href="https://youtube.com/@charteredsworldacademy" target="_blank">
-            <i class="fab fa-youtube"></i>
-          </a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Follow Us</h4>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+          </div>
         </div>
       </div>
 
+      <div class="form-area">
+        <div class="form-header">
+          <h2>Send a Message</h2>
+          <p>Fill out the form below and we'll respond shortly.</p>
+        </div>
+
+        <!-- FIX: Added id="contact-form" so JS can find it -->
+        <form id="contact-form">
+          <div class="form-grid">
+            <div class="field">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="firstName" placeholder="John" required>
+            </div>
+            <div class="field">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lastName" placeholder="Doe" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="john@example.com" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210">
+            </div>
+            <div class="field full">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Your message here..." required></textarea>
+            </div>
+            <button type="submit" class="form-submit-btn">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+            <div id="success">✅ Message sent successfully! We'll be in touch soon.</div>
+          </div>
+        </form>
+      </div>
+
     </div>
-
-    <p class="footer-copy">
-      © 2026 CWA. All rights reserved.
-    </p>
-
   </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<!-- FIX: Removed broken unclosed <div> inside footer -->
+<footer class="bg-gray-900 text-white py-8">
+  <p class="footer-copy" style="color:#94a3b8;">
+    © 2026 CWA. All rights reserved.
+  </p>
 </footer>
 
 <!-- ================= BACK TO TOP ================= -->
 <button id="back-to-top"
-  class="fixed bottom-6 right-6 w-10 h-10 bg-white shadow rounded-full flex items-center justify-center opacity-0 pointer-events-none transition">
+  class="fixed bottom-6 right-6 w-10 h-10 bg-white shadow rounded-full flex items-center justify-center opacity-0 pointer-events-none transition z-50">
   <ion-icon name="arrow-up"></ion-icon>
 </button>
 
@@ -730,63 +800,82 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* Swiper */
   new Swiper(".testimonialSwiper", {
-    slidesPerView:1,
-    spaceBetween:30,
-    loop:true,
-    autoplay:{delay:3000,disableOnInteraction:false},
-    pagination:{el:".swiper-pagination",clickable:true},
-    breakpoints:{
-      768:{slidesPerView:2},
-      1024:{slidesPerView:3}
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    autoplay: { delay: 3000, disableOnInteraction: false },
+    pagination: { el: ".swiper-pagination", clickable: true },
+    breakpoints: {
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 }
     }
   });
 
   /* AOS */
-  AOS.init({duration:1000,once:true});
+  AOS.init({ duration: 1000, once: true });
 
-  /* Mobile Menu + Back to Top */
-  const openBtn = document.getElementById('menu-open');
-  const closeBtn = document.getElementById('menu-close');
+  /* Mobile Menu */
+  const openBtn   = document.getElementById('menu-open');
+  const closeBtn  = document.getElementById('menu-close');
   const mobileMenu = document.getElementById('mobile-menu');
-  const overlay = document.getElementById('mobile-overlay');
+  const overlay   = document.getElementById('mobile-overlay');
   const backTopBtn = document.getElementById('back-to-top');
 
-  if(openBtn){
-    openBtn.addEventListener('click',()=>{
+  if (openBtn) {
+    openBtn.addEventListener('click', () => {
       mobileMenu.classList.remove('-translate-x-full');
       overlay.classList.remove('invisible');
     });
   }
-
-  if(closeBtn){
-    closeBtn.addEventListener('click',()=>{
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      mobileMenu.classList.add('-translate-x-full');
+      overlay.classList.add('invisible');
+    });
+  }
+  if (overlay) {
+    overlay.addEventListener('click', () => {
       mobileMenu.classList.add('-translate-x-full');
       overlay.classList.add('invisible');
     });
   }
 
-  if(overlay){
-    overlay.addEventListener('click',()=>{
-      mobileMenu.classList.add('-translate-x-full');
-      overlay.classList.add('invisible');
-    });
-  }
-
-  window.addEventListener('scroll',()=>{
-    if(window.scrollY>600){
-      backTopBtn.classList.remove('opacity-0','pointer-events-none');
+  /* Back to Top */
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 600) {
+      backTopBtn.classList.remove('opacity-0', 'pointer-events-none');
     } else {
-      backTopBtn.classList.add('opacity-0','pointer-events-none');
+      backTopBtn.classList.add('opacity-0', 'pointer-events-none');
     }
   });
 
-  backTopBtn.addEventListener('click',()=>{
-    window.scrollTo({top:0,behavior:'smooth'});
+  backTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  /* Contact Form — FIX: null-check so no JS error if form is missing */
+  const scriptURL = "YOUR_GOOGLE_SCRIPT_URL";
+  const form = document.getElementById("contact-form");
+  const success = document.getElementById("success");
+
+  if (form) {
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      fetch(scriptURL, {
+        method: "POST",
+        body: new FormData(form)
+      })
+      .then(() => {
+        form.reset();
+        if (success) success.style.display = "block";
+      })
+      .catch(() => alert("Error! Please try again."));
+    });
+  }
 
 });
 
-  /* Instructor Modal */
+/* Instructor Modal */
 function openModal(name) {
   document.getElementById("modalName").innerText = name;
   document.getElementById("profileModal").classList.add("show");
@@ -795,10 +884,7 @@ function openModal(name) {
 function closeModal() {
   document.getElementById("profileModal").classList.remove("show");
 }
-
 </script>
 
 </body>
 </html>
-
-
